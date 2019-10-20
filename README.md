@@ -20,4 +20,6 @@
 
 2. Запустите программу из командной строки (Windows) или терминала (Linux, MacOS):
 
-```$ ruby hangman.rb```
+```
+$ ruby hangman.rb
+```
