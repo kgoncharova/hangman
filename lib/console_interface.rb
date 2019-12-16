@@ -1,3 +1,5 @@
+require 'colorize'
+
 class ConsoleInterface
   FIGURES =
       Dir[__dir__ + '/../data/figures/*.txt'].
@@ -13,14 +15,22 @@ class ConsoleInterface
       Слово: #{word_to_show}
       #{figure}
       Ошибки (#{@game.errors_made}): #{errors_to_show}
-      У вас осталось ошибок: #{@game.errors_allowed}
 
     END
 
+    errors_count = "У вас осталось ошибок: #{@game.errors_allowed}"
+
+    case @game.errors_allowed
+    when 0..1 then puts errors_count.colorize(:red)
+    when 2..3 then puts errors_count.colorize(:yellow)
+    when 4..5 then puts errors_count.colorize(:blue)
+    else puts errors_count.colorize(:green)
+    end
+
     if @game.won?
-      puts "Поздравляем, вы выиграли!"
+      puts "Поздравляем, вы выиграли!".colorize(:green)
     elsif @game.lost?
-      puts "Вы проиграли, загаданное слово: #{@game.word}"
+      puts "Вы проиграли, загаданное слово: #{@game.word}".colorize(:red)
     end
   end
 
