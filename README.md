@@ -21,12 +21,12 @@
 2. Запустите терминал (Ctrl+Alt+T) и выполните команды:
 
 ```
-$ gem install budler
+$ gem install bundler
 $ bundle install
 ```
 
 3. Запустите программу:
 
 ```
-$ bundler exec ruby main.rb
+$ bundle exec ruby main.rb
 ```
