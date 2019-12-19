@@ -20,15 +20,13 @@ class Game
   end
 
   def letters_to_guess
-    result =
-      @letters.map do |letter|
-        if @user_guesses.include?(normalize_letter(letter))
-          letter
-        else
-          nil
-        end
+    @letters.map do |letter|
+      if @user_guesses.include?(normalize_letter(letter))
+        letter
+      else
+        nil
       end
-    return result
+    end
   end
 
   def lost?
